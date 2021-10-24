@@ -70,7 +70,8 @@ def read_student_info(attr: Class_Student):
     return {'name': attr.Name}
 ```
 ## 2-3、路徑參數也可以是路徑值（file path）
-- 例如：http://localhost:8000/files/<span style="font-weight:bolder;color:darkblue;">/home/john/data.txt</span>；會得到路徑 /home/john/data.txt
+- 例如：http://localhost:8000/files/$/$home/john/data.txt $\Rightarrow$ 會得到路徑 /home/john/data.txt
+  - 注意：home 之前有 /，表為從根目錄起…
 ```pthon
 @app.get('/files/{file_path:path})
 def read_file(path):

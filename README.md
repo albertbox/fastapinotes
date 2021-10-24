@@ -65,9 +65,16 @@ class Class_Student(str, Enum):
 
 app = FastAPI()
 
-@app.get('/student/{info}')
-def read_student_info(info: Class_Student):
-    return {'name': info.Name}
+@app.get('/student/{attr}')
+def read_student_info(attr: Class_Student):
+    return {'name': attr.Name}
+```
+## 2-3、路徑參數也可以是路徑值（file path）
+- 例如：http://localhost:8000/files/<span style="font-weight:bolder;color:darkblue;">/home/john/data.txt</span>；會得到路徑 /home/john/data.txt
+```pthon
+@app.get('/files/{file_path:path})
+def read_file(path):
+    return {'file_path': file_path}
 ```
 
 # 三、查詢參數
